@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rem</title>
+    <script type="text/javascript">
+        (function rem(doc, win) {
+            let docE1 = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                let clientWidth=docE1.clientWidth;
+                if(!clientWidth) return;
+                docE1.style.fontSize=20*(clientWidth/320)+"px"
+                };
+            if(!doc.addEventListener) return;
+            win.addEventListener(resizeEvt,recalc,false);
+            doc.addEventListener("DOMContentLoaded",recalc,false);
+        })(document,window);
+    </script>
+
+</head>
+<body>
+<p>hello,weiqiujuan</p>
+</body>
+</html>

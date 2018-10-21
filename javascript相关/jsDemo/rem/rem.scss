@@ -1,0 +1,13 @@
+$hfs:16px;/*默认值可以更具需求来定义*/
+@function pxTorem($px){
+  @return $px /$hfs *1rem;
+}
+
+.class{
+  font-style: pxTorem(12px);
+}
+
+/*
+.class{
+  font-style: 0.75rem;
+}*/

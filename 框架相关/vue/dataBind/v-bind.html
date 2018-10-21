@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<div id="app">
+    <p title={{title}}></p>
+    <p v-bind="title">title属性绑定，html属性不能使用双大括号形式
+    绑定，只能用v-bind指令绑定</p>
+    <p :title="title">":"是"v-bind"的快捷方式</p>
+</div>
+<script>
+    let app=new Vue({
+        el:"#app",
+        data:{
+            title:'title content'
+        }
+    });
+</script>
+
+</body>
+</html>

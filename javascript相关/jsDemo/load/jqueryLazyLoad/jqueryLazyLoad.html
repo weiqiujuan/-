@@ -1,0 +1,94 @@
+<!--https://www.cnblogs.com/liliangel/p/6122836.html-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- 视口，屏幕的宽度1：1，不允许缩放 -->
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+
+    <!--  浏览器不缓存，每次都去服务器拉取 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- 不自动识别手机号码 -->
+    <meta name="format-detection" content="telephone=no" >
+
+    <title>测试懒加载图片</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/base/common.css?v=2016_07_25">
+    <link rel="stylesheet" type="text/css" href="../static/component/mdater/css/zepto.mdater.css">
+    <link rel="stylesheet" type="text/css" href="../static/component/jqweui/css/weui-and-jqueryweui.css">
+
+    <style type="text/css">
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<article>
+    <section class="module-section">
+        <img data-original="../images/img-1" src="../images/big-1.jpg"/>
+    </section>
+    <section class="module-section">
+        <img data-original="../images/img-2" src="../images/big-1.jpg"/>    </section>
+    <section class="module-section">
+        <img data-original="../images/img-3" src="../images/big-1.jpg"/>    </section>
+    <section class="module-section">
+        <img data-original="../images/img-4" src="../images/big-1.jpg"/>    </section>
+    <section class="module-section">
+        <img data-original="../images/img-5" src="../images/big-1.jpg"/>    </section>
+    <section class="module-section">
+        <img data-original="../images/img-6" src="../images/big-1.jpg"/>    </section>
+    <section class="module-section">
+        <img data-original="../images/img-7" src="../images/big-1.jpg"/>    </section>
+    <form name="goingOutDetail" id="goingOutDetail">
+        <section class="module-section">
+
+        </section>
+    </form>
+
+    <section class="blank-place"></section>
+</article>
+</body>
+
+<script type="text/javascript" src="../static/component/requirejs/require.min.js" data-main="/static/config"></script>
+<script type="text/javascript">
+    require.config({
+        baseUrl : "/static",
+        paths: {
+            jquery:'component/jquery/jquery-3.1.0.min',//jquery版本
+            fastclick: 'component/jquery/fastclick',
+            jqueryLazyload: './jquery.js',//图片懒加载
+        },
+        shim: {
+            jqueryLazyload: {
+                deps: ['jquery'],
+                exports: '$'
+            }
+        }
+    });
+
+    require(
+        [
+            'jquery',
+            'fastclick',
+            'jqueryLazyload'
+        ],
+        function($,FastClick){
+            $(document).ready(function() {
+                FastClick.attach(document.body);
+
+                $("img").lazyload({
+                    effect : "fadeIn"
+                });
+            });
+        });
+</script>
+</html>

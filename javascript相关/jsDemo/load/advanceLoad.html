@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>advanceLoad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body::after{
+            content: "";
+            display:block;
+            position: absolute;
+            background: url('./img1.jpg') no-repeat -10000px -1000px,
+                        url('./img2.jpg') no-repeat -10000px -1000px,
+                        url('./img3.jpg') no-repeat -10000px -1000px;
+            width:0;
+            height:0;
+        }
+
+    </style>
+    <script src="./imgs.js"></script>
+</head>
+<body>
+    
+</body>
+</html>

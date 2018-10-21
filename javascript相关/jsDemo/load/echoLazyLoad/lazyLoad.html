@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lazyLoad</title>
+    <script src="js/echo.main.js"></script>
+    <style type="text/css">
+        .demo img{
+            width: 736px;
+            height: 490px;
+            background: url("../images/loading.gif") 50% no-repeat;
+        }
+    </style>
+</head>
+<body>
+<h1 style="margin:40px ;font:32px Microsofe;text-align: center">
+    ç®€å•çš„jsæ‡’åŠ è½½åŸç?
+</h1>
+
+<div class="demo" style="width: 800px;margin: 0 auto">
+    <img src="../images/blank.gif" alt="" class="lazy" data-echo="images/big-1.jpg">
+    <img src="../images/blank.gif" alt="" class="lazy" data-echo="images/big-2.jpg">
+    <img src="../images/blank.gif" alt="" class="lazy" data-echo="images/big-3.jpg">
+    <img src="../images/blank.gif" alt="" class="lazy" data-echo="images/big-4.jpg">
+    <img src="../images/blank.gif" alt="" class="lazy" data-echo="images/big-5.jpg">
+    <img src="../images/blank.gif" alt="" class="lazy" data-echo="images/big-6.jpg">
+</div>
+<script type="text/javascript">
+    Echo.init({
+        offset:0,//ç¦»å¯æ˜?ŒºåŸŸå?å°‘åƒç´ çš„å›¾ç‰‡å?»¥è¢?Š è½?
+        throttle:0//å›¾ç‰‡å»¶æ—¶å¤šå°‘æ¯??è¢?Š è½?
+    });
+</script>
+</body>
+</html>

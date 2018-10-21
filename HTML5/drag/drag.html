@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>h5拖放API实现拖放排序</title>
+	<style type="text/css">
+       .box{
+       	width: 100px;
+       	height: 62px;
+       	float: left;
+       }
+
+
+		#source{
+			background: green;
+		}
+		#process{
+			background: yellow;
+		}
+		#tanget{
+			background: red;
+		}
+	</style>
+</head>
+<body>
+
+<div class="box" id="source" draggable="true">A元素</div>
+<div class="box" id="process">B元素</div>
+<div class="box" id="tanget">C元素</div>
+<script type="text/javascript">
+	let source=document.getElementById('source'),
+	proces=document.getElementById('process'),
+	target=document.getElementById('tanget');
+
+
+	source.addEventListener("dragstart",function (ev) {
+		// body...
+		console.log("a元素开始被拖动");
+	},false);
+	proces.addEventListener("dragenter",function (ev) {
+		// body...
+		console.log("a元素开始被拖动到B元素")
+	},false);
+	 proces.addEventListener('dragleave',function(ev){  // dragleave事件由b元素产生
+        console.log('a元素离开b元素');
+    },false);
+	 target.addEventListener('drop',
+	 function(ev){        // drop事件由c元素产生
+        console.log('a元素拖放到c元素了');
+        ev.preventDefault();
+    },false)
+
+document.ondragover=function(e){
+	e.preventDefault();
+}
+
+
+</script>
+</body>
+</html>

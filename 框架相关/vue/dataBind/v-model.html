@@ -1,0 +1,26 @@
+<!DOCTYPE html>r
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sBind(s)</title>
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!--双向绑定依赖于v-model指令。
+修改textarea中的内容，input内容同步改变显示。-->
+<div id="app">
+    <div>{{input}}</div>
+    <textarea v-model="input"></textarea>
+</div>
+
+<script>
+    let app=new Vue({
+        el:"#app",
+        data:{
+            input:'two-way-binding'
+        }
+    })
+</script>
+</body>
+</html>

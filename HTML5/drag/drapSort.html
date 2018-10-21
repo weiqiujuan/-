@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>h5拖放API实现拖放排序</title>
+</head>
+<style type="text/css">
+    ul {
+        list-style: none;
+    }
+
+    .list {
+        border: 2px solid red;
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin-right: 10px;
+    }
+
+</style>
+<body>
+<ul>
+    <li class="list" draggable='true'>1</li>
+    <li class="list" draggable='true'>2</li>
+    <li class="list" draggable='true'>3</li>
+    <li class="list" draggable='true'>4</li>
+    <li class="list" draggable='true'>5</li>
+</ul>
+<script type="text/javascript">
+    let source = document.querySelectorAll(".list"),
+        dragElement = null;
+    for (let i = 0; i < source.length; i++) {
+        source[i].addEventListener('dragstart', function (ev) {
+            dragElement = this;
+            console.log(source[i] + "开始被拖动");
+        }, false);
+
+        source[i].addEventListener('dragenter', function (ev) {
+            // body...
+            if (dragElement !== this) {
+                this.parentNode.insertBefore(dragElement, this);
+            }
+        }, false);
+
+        source[i].addEventListener('dragLeave', function (ev) {
+            // body...
+            if (dragElement !== this) {
+                if (this === this.prantNode.lastElementChild || this.parentNode.lastElementChild) {
+                    this.parentNode.appendChile(dragElement);
+                }
+            }
+        }, false)
+    }
+
+    document.ondragover = function (e) {
+        // body...
+        e.preventDefault();
+    };
+    document.ondrop = function (e) {
+        e.preventDefault();
+    }
+</script>
+</body>
+</html>
